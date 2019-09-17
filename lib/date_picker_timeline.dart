@@ -32,7 +32,6 @@ class DatePickerTimeline extends StatefulWidget {
 }
 
 class _DatePickerState extends State<DatePickerTimeline> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -60,12 +59,10 @@ class _DatePickerState extends State<DatePickerTimeline> {
               // A date is selected
               if (widget.onDateChange != null) {
                 widget.onDateChange(selectedDate);
-              }            
+              }
               setState(() {
                 widget.currentDate = selectedDate;
-              });         
-
-
+              });
             },
           );
         },
@@ -74,6 +71,8 @@ class _DatePickerState extends State<DatePickerTimeline> {
   }
 
   bool compareDate(DateTime date1, DateTime date2) {
-    return date1.day == date2.day  &&  date1.month == date2.month && date1.year == date2.year;
+    return date1.day == date2.day &&
+        date1.month == date2.month &&
+        date1.year == date2.year;
   }
 }

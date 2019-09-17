@@ -17,15 +17,15 @@ class DateWidget extends StatelessWidget {
   final DateSelectionCallback onDateSelected;
 
   DateWidget({
-      @required this.date,
-      @required this.dateSize,
-      @required this.daySize,
-      @required this.monthSize,
-      @required this.dateColor,
-      @required this.monthColor,
-      @required this.dayColor,
-      @required this.selectionColor,
-      this.onDateSelected
+    @required this.date,
+    @required this.dateSize,
+    @required this.daySize,
+    @required this.monthSize,
+    @required this.dateColor,
+    @required this.monthColor,
+    @required this.dayColor,
+    @required this.selectionColor,
+    this.onDateSelected,
   });
 
   @override
@@ -38,7 +38,8 @@ class DateWidget extends StatelessWidget {
           color: selectionColor,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 15, right: 15),
+          padding:
+              const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 15, right: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,30 +48,29 @@ class DateWidget extends StatelessWidget {
                   style: TextStyle(
                     color: monthColor,
                     fontSize: monthSize,
-                    fontFamily: 'Roboto',
                     fontWeight: FontWeight.w500,
                   )),
               Text(date.day.toString(), // Date
                   style: TextStyle(
                     color: dateColor,
                     fontSize: dateSize,
-                    fontFamily: 'Roboto',
                     fontWeight: FontWeight.w700,
                   )),
-              Text(new DateFormat("E").format(date).toUpperCase(), // WeekDay
-                  style: TextStyle(
-                    color: dayColor,
-                    fontSize: daySize,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                  ))
+              Text(
+                new DateFormat("E").format(date).toUpperCase(), // WeekDay
+                style: TextStyle(
+                  color: dayColor,
+                  fontSize: daySize,
+                  fontWeight: FontWeight.w500,
+                ),
+              )
             ],
           ),
         ),
       ),
       onTap: () {
         // Check if onDateSelected is not null
-        if (onDateSelected !=null) {
+        if (onDateSelected != null) {
           // Call the onDateSelected Function
           onDateSelected(this.date);
         }
